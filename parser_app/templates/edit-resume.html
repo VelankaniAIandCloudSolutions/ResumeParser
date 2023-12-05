@@ -1,0 +1,165 @@
+<!doctype html>
+{% load static %}
+{% load active %}
+{% load crispy_forms_tags %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Facebook Cards -->
+    <meta property="og:description" content="A fun project to store my learning from each book that I read"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content="{% static 'images/logomark.png' %}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Bookworm"/>
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@omkarpathak27">
+    <meta name="twitter:creator" content="Omkar Pathak">
+    <meta name="twitter:title" content= "Bookworm">
+    <meta name="twitter:description" content="A fun project to store my learning from each book that I read">
+    <meta name="twitter:creator" content="Omkar Pathak">
+    <meta name="twitter:image:src" content="{% static 'images/logomark.png' %}">
+    <meta name="twitter:domain" content="https://www.omkarpathak.in">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/logomarkv2.ico' %}">
+    <title>{% block title %}{% endblock %}</title>
+
+    <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+  </head>
+
+  <body style="font-family: 'Poppins', sans-serif;">
+    {% include 'navbar.html' %}
+    <hr>
+<div class="pageContentWrapper">
+
+  <div class="container-fluid">
+    {% include 'messages.html' %}
+    <div class="card">
+      <div class="card-body">
+        <form action="{% url 'resume-edit' resume.id %}" method="post">
+          {% csrf_token %}
+          {% comment %} {% include 'partials/_messages.html'%} {% csrf_token %} {% endcomment %}
+          <div class="form-group">
+            <label for="">Name</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="name"
+              value="{{values.name}}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Email</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="email"
+              value="{{values.email}}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Mobile Number</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="mobile_number"
+              value="{{values.mobile_number}}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Education</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="education"
+              value="{{values.education}}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Total Experience in Years</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="total_experience"
+              value="{{values.total_experience}}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Skills</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="skills"
+              value="{{values.skills}}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Experience</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="experience"
+              value="{{values.experience}}"
+            />
+          </div>
+
+
+          <input
+            type="submit"
+            value="Save"
+            class="btn btn-primary btn-primary-sm"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+      <footer class="text-center text-lg-start bg-light text-muted footer">
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+          Powered by The Velankani Group | Copyright &copy; 2022
+        
+        </div>
+    </footer>
+
+</body>
+
+<style>
+
+
+  html{
+  position:relative; 
+  min-height: 100%;
+  }
+  /*Normalize html and body elements,this style is just good to have*/
+  html,body{
+  margin:0;
+  padding:0;
+  }
+  .pageContentWrapper{
+  margin-bottom:100px;/* Height of footer*/
+  } 
+  .footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:100px;
+    background:#ccc;
+  }
+</style>
+</html>
