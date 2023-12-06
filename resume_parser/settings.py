@@ -26,7 +26,9 @@ SECRET_KEY = 'fa^pq*c1#+6_(6jgxxr&2o-9bt$5u_f=aldx0yceaed3#c1b^b'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-WEBSITE_URL = 'http://127.0.0.1:8000'
+# WEBSITE_URL = 'http://127.0.0.1:8000'
+WEBSITE_URL = 'https://parser.automhr.com'
+
 
 # Application definition
 
