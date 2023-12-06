@@ -40,10 +40,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'rest_framework',
+    'corsheaders',
     #'parser_app',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://automhr.com",  # Add your allowed domain(s) here
+    "https://marx.automhr.com",
+    "http://localhost:80",
+    "https://localhost:80",
+    # Add more origins as needed
+]
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
